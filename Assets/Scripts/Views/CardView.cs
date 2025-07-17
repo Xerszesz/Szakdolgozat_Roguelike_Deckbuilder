@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class CardView : MonoBehaviour
 {
@@ -18,5 +19,18 @@ public class CardView : MonoBehaviour
         description.text = card.Description;
         energy.text = card.Energy.ToString();
         imageSR.sprite = card.Image;
+    }
+
+    void OnMouseEnter()
+    {
+        wrapper.SetActive(false);
+        Vector3 position = new(transform.position.x, -2, 0);
+        CardViewHoverSystem.Instance.Show(Card,position);
+    }
+    
+    void OnMouseExit()
+    {
+        CardViewHoverSystem.Instance.Hide();
+        wrapper.SetActive(true);
     }
 }

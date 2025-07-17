@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class CardViewHoverSystem : Singleton<CardViewHoverSystem>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private CardView cardViewHover;
+
+
+    public void Show(Card card, Vector3 position)
     {
-        
+        cardViewHover.gameObject.SetActive(true);
+        cardViewHover.Setup(card);
+        cardViewHover.transform.position = position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hide()
     {
-        
+        cardViewHover.gameObject.SetActive(false);
     }
+    
 }
