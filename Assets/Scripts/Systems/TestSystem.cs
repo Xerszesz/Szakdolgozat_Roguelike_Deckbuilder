@@ -3,6 +3,7 @@ using UnityEngine;
 public class TestSystem : MonoBehaviour
 {
     [SerializeField] private HandView handView;
+    [SerializeField] private CardData cardData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,7 +16,8 @@ public class TestSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CardView cardView = CardViewCreator.Instance.CreateCardView(transform.position, Quaternion.identity);
+            Card card = new(cardData);
+            CardView cardView = CardViewCreator.Instance.CreateCardView(card,transform.position, Quaternion.identity);
             StartCoroutine(handView.AddCard(cardView));
         }
         

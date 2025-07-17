@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handView: {fileID: 679994049}
+  cardData: {fileID: 11400000, guid: 3f7d2b955731c6249976a7a0e1626351, type: 2}
 --- !u!1 &150909922
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +864,14 @@ PrefabInstance:
     - target: {fileID: 1158834692652679715, guid: 6b802cf416576b64aa0b2d74a358d65f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408048949904449032, guid: 6b802cf416576b64aa0b2d74a358d65f, type: 3}
+      propertyPath: m_fontSize
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408048949904449032, guid: 6b802cf416576b64aa0b2d74a358d65f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
