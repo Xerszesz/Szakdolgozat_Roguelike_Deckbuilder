@@ -102,7 +102,6 @@ public class ActionSystem : Singleton<ActionSystem>
     public static void DetachPerformer<T>() where T : GameAction
     {
         Type type = typeof(T);
-        IEnumerator wrappedPerformer(GameAction action) => performer((T)action);
         if (performers.ContainsKey(type))
         {
             performers.Remove(type);
