@@ -1,25 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TestSystem : MonoBehaviour
 {
     [SerializeField] private HandView handView;
-    [SerializeField] private CardData cardData;
+    [SerializeField] private List<CardData> deckData;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        CardSystem.Instance.Setup(deckData);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Card card = new(cardData);
-            CardView cardView = CardViewCreator.Instance.CreateCardView(card,transform.position, Quaternion.identity);
-            StartCoroutine(handView.AddCard(cardView));
-        }
-        
-    }
+
 }
