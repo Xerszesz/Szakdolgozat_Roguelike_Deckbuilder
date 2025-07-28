@@ -52,6 +52,9 @@ MonoBehaviour:
   energy: {fileID: 2962476077356643376}
   imageSR: {fileID: 2332941425042701877}
   wrapper: {fileID: 3691996949520173564}
+  dropareaLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!210 &4599727008298463017
 SortingGroup:
   m_ObjectHideFlags: 0

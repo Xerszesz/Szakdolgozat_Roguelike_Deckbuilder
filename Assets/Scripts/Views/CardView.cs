@@ -9,6 +9,7 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text energy;
     [SerializeField] private SpriteRenderer imageSR;
     [SerializeField] private GameObject wrapper;
+    [SerializeField] private LayerMask dropareaLayer;
 
 
     public Card Card { get; private set; }
@@ -29,7 +30,6 @@ public class CardView : MonoBehaviour
 
     void OnMouseEnter()
     {
-        
         if (!InteractionSystem.Instance.PlayerCanHover())
         {
             return;
@@ -89,9 +89,12 @@ public class CardView : MonoBehaviour
         {
             return;
         }
-        if (Physics.Raycast(transform.position,Vector3.forward,out RaycastHit hit, 10f))
+
+
+        if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropareaLayer))
         {
-            //Kártya kijátszása
+            PlayCardGameAction playCardGA = new(Card);
+            ActionSystem.Instance.Perform(playCardGA);
         }
         else
         {
