@@ -12,6 +12,12 @@ public class CardView : MonoBehaviour
 
 
     public Card Card { get; private set; }
+
+
+    //eredeti helye és forgása
+    private Vector3 dragStartposition;
+    private Quaternion dragStartrotation;
+
     public void Setup(Card card)
     {
         Card = card;
@@ -23,6 +29,11 @@ public class CardView : MonoBehaviour
 
     void OnMouseEnter()
     {
+        
+        if (!InteractionSystem.Instance.PlayerCanHover())
+        {
+            return;
+        }
         wrapper.SetActive(false);
         Vector3 position = new(transform.position.x, -2, 0);
         CardViewHoverSystem.Instance.Show(Card,position);
@@ -30,7 +41,65 @@ public class CardView : MonoBehaviour
     
     void OnMouseExit()
     {
+        if (!InteractionSystem.Instance.PlayerCanHover())
+        {
+            return;
+        }
         CardViewHoverSystem.Instance.Hide();
         wrapper.SetActive(true);
     }
+
+    //Mindegyiknél csak akkor történik meg ha a játékos éppen interaktálhat
+
+    private void OnMouseDown()
+    {
+        if (!InteractionSystem.Instance.PlayerCanInteract())
+        {
+            return;
+        }
+
+
+        //wrappert visszakapcsoljuk, a hover pedig ki
+
+        InteractionSystem.Instance.PlayerIsDragging = true;
+        wrapper.SetActive(true);
+        CardViewHoverSystem.Instance.Hide();
+
+        //tárolni eredeti hely és rota
+        dragStartposition = transform.position;
+        dragStartrotation = transform.rotation;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    
+
+    private void OnMouseDrag()
+    {
+        if (!InteractionSystem.Instance.PlayerCanInteract())
+        {
+            return;
+        }
+        
+        transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+    }
+
+    private void OnMouseUp()
+    {
+        if (!InteractionSystem.Instance.PlayerCanInteract())
+        {
+            return;
+        }
+        if (Physics.Raycast(transform.position,Vector3.forward,out RaycastHit hit, 10f))
+        {
+            //Kártya kijátszása
+        }
+        else
+        {
+            transform.position = dragStartposition;
+            transform.rotation = dragStartrotation;
+        }
+        InteractionSystem.Instance.PlayerIsDragging = false;
+
+    }
+
 }
