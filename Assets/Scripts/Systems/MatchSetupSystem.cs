@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class MatchSetupSystem : MonoBehaviour
 {
-    [SerializeField] private List<CardData> deckData;
+    [SerializeField] private HeroData heroData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        CardSystem.Instance.Setup(deckData);
+        HeroSystem.Instance.Setup(heroData);
+        CardSystem.Instance.Setup(heroData.StarterDeck);
         DrawCardsGameAction drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
     }
