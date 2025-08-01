@@ -91,7 +91,9 @@ public class CardView : MonoBehaviour
         }
 
 
-        if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropareaLayer))
+        if (EnergySystem.Instance.HasEnoughEnergy(Card.Energy) 
+            && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropareaLayer))
+
         {
             PlayCardGameAction playCardGA = new(Card);
             ActionSystem.Instance.Perform(playCardGA);
