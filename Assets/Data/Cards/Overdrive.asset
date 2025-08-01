@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: Fireball
+  m_Name: Overdrive
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 6 damage to enemy
+  <Description>k__BackingField: Draw 2 cards
   <Energy>k__BackingField: 1
-  <Image>k__BackingField: {fileID: -6607481912129624618, guid: 937de5c287472bb4cbeafb0c8701dccb, type: 3}
+  <Image>k__BackingField: {fileID: -677116279980736800, guid: 9e93d8d2f6cb84e4a8731d539aa98efb, type: 3}
   <Effects>k__BackingField:
-  - rid: -2
+  - rid: 374558561668956414
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 374558561668956414
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 2
