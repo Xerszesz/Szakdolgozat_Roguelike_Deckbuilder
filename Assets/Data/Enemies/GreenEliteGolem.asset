@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cf02192f185d54aa087a3bb1a520cd, type: 3}
   m_Name: GreenEliteGolem
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: -4660124755026623354, guid: 15dbc2830ceda37468f4ad2aeb016bc6, type: 3}
+  <Image>k__BackingField: {fileID: -2475909616575746043, guid: bd3e37060ce8d564994f85b3a6ceae41, type: 3}
   <Health>k__BackingField: 30
   <AttackPower>k__BackingField: 10
