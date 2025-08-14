@@ -3,22 +3,10 @@ using UnityEngine;
 
 public class DestroyRandomEnemyEffect : Effect
 {
-    public override GameAction GetGameAction()
+    public override GameAction GetGameAction(List<CombatantView> targets)
     {
-        List<EnemyView> enemies = new(EnemySystem.Instance.Enemies);
+        EnemyView enemyTarget = targets[0] as EnemyView;
 
-        if (enemies.Count == 0)
-        {
-            Debug.LogWarning("No more enemy");
-            return null;
-        }
-
-        // Véletlenszerû ellenség kiválasztása
-        int randomIndex = Random.Range(0, enemies.Count);
-        EnemyView chosenEnemy = enemies[randomIndex];
-
-        KillEnemyGameAction killEnemyGA = new KillEnemyGameAction(chosenEnemy);
-
-        return killEnemyGA;
+        return new KillEnemyGameAction(enemyTarget);
     }
 }
