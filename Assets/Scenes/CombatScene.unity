@@ -1778,7 +1778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3106e1b4c2266934cb8202dbaa89d661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageVFX: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  enemyDamagedVFX: {fileID: 2708598583397607911, guid: 80c6c01ee20a7ac4fb12588dd57cc666, type: 3}
+  heroDamagedVFX: {fileID: 2708598583397607911, guid: d1d1e368dc0e44d4bb0b82372e1acd81, type: 3}
 --- !u!1 &1729209999
 GameObject:
   m_ObjectHideFlags: 0
