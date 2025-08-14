@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: Fireball
+  m_Name: DrillStrike
   m_EditorClassIdentifier: 
   <Description>k__BackingField: Deal 6 damage to enemy
   <Energy>k__BackingField: 1
-  <Image>k__BackingField: {fileID: -6607481912129624618, guid: 937de5c287472bb4cbeafb0c8701dccb, type: 3}
-  <Effects>k__BackingField:
-  - rid: -2
+  <Image>k__BackingField: {fileID: -4876062667510285389, guid: 28d3040b5644b0045ae67c0fb2bb7b0c, type: 3}
+  <ManualTargetEffect>k__BackingField:
+    rid: 374558865445093445
+  <OtherEffects>k__BackingField: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 374558865445093445
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 6

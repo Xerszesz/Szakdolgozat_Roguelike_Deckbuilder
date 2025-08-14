@@ -57,18 +57,27 @@ public class CardView : MonoBehaviour
         {
             return;
         }
+        if (Card.ManualTargetEffect != null)
+        {
+            ManualTargetingSystem.Instance.StartTargeting(transform.position);
+        }
+        else
+        {
+            //wrappert visszakapcsoljuk, a hover pedig ki
+
+            InteractionSystem.Instance.PlayerIsDragging = true;
+            wrapper.SetActive(true);
+            CardViewHoverSystem.Instance.Hide();
+
+            //tárolni eredeti hely és rota
+            dragStartposition = transform.position;
+            dragStartrotation = transform.rotation;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+        }
 
 
-        //wrappert visszakapcsoljuk, a hover pedig ki
-
-        InteractionSystem.Instance.PlayerIsDragging = true;
-        wrapper.SetActive(true);
-        CardViewHoverSystem.Instance.Hide();
-
-        //tárolni eredeti hely és rota
-        dragStartposition = transform.position;
-        dragStartrotation = transform.rotation;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        
     }
 
     
@@ -76,6 +85,11 @@ public class CardView : MonoBehaviour
     private void OnMouseDrag()
     {
         if (!InteractionSystem.Instance.PlayerCanInteract())
+        {
+            return;
+        }
+
+        if (Card.ManualTargetEffect != null)
         {
             return;
         }
@@ -90,20 +104,34 @@ public class CardView : MonoBehaviour
             return;
         }
 
-
-        if (EnergySystem.Instance.HasEnoughEnergy(Card.Energy) 
-            && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropareaLayer))
-
+        if (Card.ManualTargetEffect != null)
         {
-            PlayCardGameAction playCardGA = new(Card);
-            ActionSystem.Instance.Perform(playCardGA);
+            EnemyView target = ManualTargetingSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1));
+            if (target != null && EnergySystem.Instance.HasEnoughEnergy(Card.Energy))
+            {
+                PlayCardGameAction playCardGA = new(Card, target);
+                ActionSystem.Instance.Perform(playCardGA);
+            }
         }
         else
         {
-            transform.position = dragStartposition;
-            transform.rotation = dragStartrotation;
+            if (EnergySystem.Instance.HasEnoughEnergy(Card.Energy)
+           && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropareaLayer))
+
+            {
+                PlayCardGameAction playCardGA = new(Card);
+                ActionSystem.Instance.Perform(playCardGA);
+            }
+            else
+            {
+                transform.position = dragStartposition;
+                transform.rotation = dragStartrotation;
+            }
+            InteractionSystem.Instance.PlayerIsDragging = false;
+
         }
-        InteractionSystem.Instance.PlayerIsDragging = false;
+
+
 
     }
 

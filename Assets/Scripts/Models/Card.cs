@@ -7,7 +7,7 @@ public class Card
     public string Description => data.Description;
     public Sprite Image => data.Image;
 
-    public Effect ManualEffect => data.ManualTargetEffect;
+    public Effect ManualTargetEffect => data.ManualTargetEffect;
     public List<AutoTargetEffect> otherEffects => data.OtherEffects;
 
     public int Energy { get; private set; }
