@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: eb04ccade6cb90d40af9dd5fdb0f8664
+guid: f727e46d9570f6c49975b34b3c77a8eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7656132029737522217
-    second: EnemyDamagedNormal_0
+      213: -1486736674410596525
+    second: ArrowHead_0
+  - first:
+      213: -5080434217705494900
+    second: ArrowHead_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyDamagedNormal_0
+      name: ArrowHead_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 272
+        y: 206
+        width: 1075
+        height: 1014
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7db210e9b74ffb590800000000000000
-      internalID: -7656132029737522217
+      spriteID: 357f5372fdc0e5be0800000000000000
+      internalID: -1486736674410596525
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f4811fd33e39f046bb0bbc3031c0b55
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EnemyDamagedNormal_0: -7656132029737522217
+      ArrowHead_0: -1486736674410596525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

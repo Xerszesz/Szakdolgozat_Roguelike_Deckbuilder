@@ -19,10 +19,6 @@ MonoBehaviour:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: -2
-    <Effect>k__BackingField:
-      rid: -2
-  - <TargetMode>k__BackingField:
       rid: 1589525801166438478
     <Effect>k__BackingField:
       rid: 1589525801166438479
