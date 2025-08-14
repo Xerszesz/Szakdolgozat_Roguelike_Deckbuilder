@@ -15,11 +15,25 @@ MonoBehaviour:
   <Description>k__BackingField: Kill a random enemy
   <Energy>k__BackingField: 1
   <Image>k__BackingField: {fileID: -414809344184757580, guid: 134e57c4f0679eb4dac2cd23526896fa, type: 3}
-  <Effects>k__BackingField:
-  - rid: 1589525801166438473
+  <ManualTargetEffect>k__BackingField:
+    rid: -2
+  <OtherEffects>k__BackingField:
+  - <TargetMode>k__BackingField:
+      rid: -2
+    <Effect>k__BackingField:
+      rid: -2
+  - <TargetMode>k__BackingField:
+      rid: 1589525801166438478
+    <Effect>k__BackingField:
+      rid: 1589525801166438479
   references:
     version: 2
     RefIds:
-    - rid: 1589525801166438473
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1589525801166438478
+      type: {class: RandomEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 1589525801166438479
       type: {class: DestroyRandomEnemyEffect, ns: , asm: Assembly-CSharp}
       data: 

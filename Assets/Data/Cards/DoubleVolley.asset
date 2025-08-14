@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
   m_Name: DoubleVolley
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 5 damage two times
+  <Description>k__BackingField: Deal 3 damage two times
   <Energy>k__BackingField: 1
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 8996419540606688224, guid: 0d66a8c4277241c4c9511503afb9223e, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
@@ -37,11 +37,11 @@ MonoBehaviour:
     - rid: 1589525801166438485
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 5
+        damageAmount: 3
     - rid: 1589525801166438486
       type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
       data: 
     - rid: 1589525801166438487
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 5
+        damageAmount: 3
