@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RockShatterRain_0: 9220593326914855491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

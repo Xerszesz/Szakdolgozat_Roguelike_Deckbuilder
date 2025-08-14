@@ -20,6 +20,7 @@ public class EnemySystem : Singleton<EnemySystem>
         ActionSystem.DetachPerformer<EnemyTurnGameAction>();
         ActionSystem.DetachPerformer<AttackHeroGameAction>();
         ActionSystem.DetachPerformer<KillEnemyGameAction>();
+
     }
 
     public void Setup(List<EnemyData> enemyDatas)
