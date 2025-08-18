@@ -56,7 +56,7 @@ public class EnemySystem : Singleton<EnemySystem>
         attacker.transform.DOMoveY(attacker.transform.position.y - 1f, 0.25f);
 
         //Deal Damage
-        DealDamageGameAction dealDamageGA = new(attacker.AttackPower, new() {HeroSystem.Instance.HeroView });
+        DealDamageGameAction dealDamageGA = new(attacker.AttackPower, new() {HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
         ActionSystem.Instance.AddReaction(dealDamageGA);
     }
 
