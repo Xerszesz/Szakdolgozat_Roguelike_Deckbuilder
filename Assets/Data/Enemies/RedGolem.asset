@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RedGolem
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: -4660124755026623354, guid: 15dbc2830ceda37468f4ad2aeb016bc6, type: 3}
-  <Health>k__BackingField: 15
+  <Health>k__BackingField: 48
   <AttackPower>k__BackingField: 5

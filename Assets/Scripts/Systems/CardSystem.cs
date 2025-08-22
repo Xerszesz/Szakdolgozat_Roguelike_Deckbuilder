@@ -18,8 +18,7 @@ public class CardSystem : Singleton<CardSystem>
         ActionSystem.AttachPerformer<DrawCardsGameAction>(DrawCardPerformer);
         ActionSystem.AttachPerformer<DiscardAllCardsGameAction>(DiscardAllCardPerformer);
         ActionSystem.AttachPerformer<PlayCardGameAction>(PlayCardPerformer);
-        ActionSystem.SubscribeReaction<EnemyTurnGameAction>(EnemyTurnPreReaction, ReactionTiming.PRE);
-        ActionSystem.SubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
+        
     }
 
     private void OnDisable()
@@ -27,8 +26,7 @@ public class CardSystem : Singleton<CardSystem>
         ActionSystem.DetachPerformer<DrawCardsGameAction>();
         ActionSystem.DetachPerformer<DiscardAllCardsGameAction>();
         ActionSystem.DetachPerformer<PlayCardGameAction>();
-        ActionSystem.UnsubscribeReaction<EnemyTurnGameAction>(EnemyTurnPreReaction, ReactionTiming.PRE);
-        ActionSystem.UnsubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
+       
     }
     //Publics
     public void Setup(List<CardData> deckData)
@@ -94,21 +92,7 @@ public class CardSystem : Singleton<CardSystem>
             ActionSystem.Instance.AddReaction(performEffectGA);
         }
     }
-    //Reactions
-
-    private void EnemyTurnPreReaction(EnemyTurnGameAction enemyturnGA)
-    {
-        DiscardAllCardsGameAction discardAllCardsGA = new();
-        ActionSystem.Instance.AddReaction(discardAllCardsGA);
-    }
-
-    private void EnemyTurnPostReaction(EnemyTurnGameAction enemyturnGA)
-    {
-        DrawCardsGameAction drawCardsGA = new(5);
-        ActionSystem.Instance.AddReaction(drawCardsGA);
-    }
-
-
+    
     //Helpers
 
     private IEnumerator DrawCard()
