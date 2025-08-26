@@ -71,4 +71,17 @@ public class EnemySystem : Singleton<EnemySystem>
         yield return enemyBoardView.RemoveEnemy(killEnemyGA.EnemyView);
 
     }
+
+    public void Reset()
+    {
+        if (enemyBoardView != null && enemyBoardView.EnemyViews != null)
+        {
+            foreach (var enemy in new List<EnemyView>(enemyBoardView.EnemyViews))
+            {
+                Destroy(enemy.gameObject);
+            }
+            enemyBoardView.EnemyViews.Clear();
+        }
+        DOTween.KillAll(); 
+    }
 }

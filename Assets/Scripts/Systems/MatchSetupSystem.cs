@@ -10,6 +10,7 @@ public class MatchSetupSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        CardSystem.Instance.ResetDeck();
         HeroSystem.Instance.Setup(heroData);
         EnemySystem.Instance.Setup(enemyDatas);
         CardSystem.Instance.Setup(heroData.StarterDeck);

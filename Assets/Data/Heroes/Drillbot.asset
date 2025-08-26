@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Drillbot
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 3840575352826870413, guid: 5b5969c0128cde2478350087d090c553, type: 3}
-  <Health>k__BackingField: 50
+  <DeathImage>k__BackingField: {fileID: 21300000, guid: 56e5044fcff38f54b877d6a936409af2, type: 3}
+  <Health>k__BackingField: 60
   <StarterDeck>k__BackingField:
   - {fileID: 11400000, guid: cb618acea0170de4cac1fd29a56ea1e4, type: 2}
   - {fileID: 11400000, guid: cb618acea0170de4cac1fd29a56ea1e4, type: 2}

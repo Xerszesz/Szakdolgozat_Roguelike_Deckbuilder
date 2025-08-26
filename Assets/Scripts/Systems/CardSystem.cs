@@ -109,6 +109,17 @@ public class CardSystem : Singleton<CardSystem>
         discardPile.Clear();
     }
 
+    public void ResetDeck()
+    {
+        
+        drawPile.Clear();
+        hand.Clear();
+        discardPile.Clear();
+        handView.ClearAllCards();
+        DOTween.KillAll();
+        DOTween.Clear(true);
+    }
+
     private IEnumerator DiscardCard(CardView cardView)
     {
         discardPile.Add(cardView.Card);

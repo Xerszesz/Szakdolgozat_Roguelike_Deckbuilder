@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class HeroSystem : Singleton<HeroSystem>
@@ -8,12 +9,14 @@ public class HeroSystem : Singleton<HeroSystem>
     {
         ActionSystem.SubscribeReaction<EnemyTurnGameAction>(EnemyTurnPreReaction, ReactionTiming.PRE);
         ActionSystem.SubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
+        ActionSystem.AttachPerformer<KillHeroGameAction>(KillHeroGameActionPerformer);
     }
 
     public void OnDisable()
     {
         ActionSystem.UnsubscribeReaction<EnemyTurnGameAction>(EnemyTurnPreReaction, ReactionTiming.PRE);
         ActionSystem.UnsubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
+        ActionSystem.DetachPerformer<KillHeroGameAction>();
     }
 
     public void Setup(HeroData heroData)
@@ -39,5 +42,13 @@ public class HeroSystem : Singleton<HeroSystem>
         }
         DrawCardsGameAction drawCardsGA = new(5);
         ActionSystem.Instance.AddReaction(drawCardsGA);
+    }
+
+    //Performers
+
+    private IEnumerator KillHeroGameActionPerformer(KillHeroGameAction killHeroGA)
+    {
+        killHeroGA.HeroView.SetRuinedSprite();
+        yield break;
     }
 }

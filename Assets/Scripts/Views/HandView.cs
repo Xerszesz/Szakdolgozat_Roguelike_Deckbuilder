@@ -56,4 +56,16 @@ public class HandView : MonoBehaviour
         }
         yield return new WaitForSeconds(duration);
     }
+
+    //Helper
+
+    public void ClearAllCards()
+    {
+        foreach (var cardView in handcards)
+        {
+            if (cardView != null)
+                Destroy(cardView.gameObject);
+        }
+        handcards.Clear();
+    }
 }

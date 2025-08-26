@@ -19,4 +19,13 @@ public class PerkSystem : Singleton<PerkSystem>
         perksUI.RemovePerkUI(perk);
         perk.OnRemove();
     }
+
+    public void Reset()
+    {
+        foreach (var perk in perks)
+        {
+            perk.OnRemove();
+        }
+        perks.Clear();
+    }
 }
