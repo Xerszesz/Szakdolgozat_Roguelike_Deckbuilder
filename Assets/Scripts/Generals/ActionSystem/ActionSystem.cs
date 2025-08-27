@@ -135,4 +135,12 @@ public class ActionSystem : Singleton<ActionSystem>
         
     }
 
+    public void Reset()
+    {
+        preSubs.Clear();
+        postSubs.Clear();
+        performers.Clear();
+        reactions.Clear();
+    }
+
 }
