@@ -70,6 +70,13 @@ public class EnemySystem : Singleton<EnemySystem>
     {
         yield return enemyBoardView.RemoveEnemy(killEnemyGA.EnemyView);
 
+        // Check for victory
+        if (enemyBoardView.EnemyViews.Count == 0)
+        {
+            WinGameAction winGA = new WinGameAction();
+            ActionSystem.Instance.AddReaction(winGA);
+        }
+
     }
 
     public void Reset()

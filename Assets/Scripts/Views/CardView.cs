@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
-using System;
+using Unity.VisualScripting;
+
 
 public class CardView : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class CardView : MonoBehaviour
 
 
     public Card Card { get; private set; }
+    public System.Action<bool> OnSelected;
+    private bool isSelected = false;
 
 
     //eredeti helye és forgása
@@ -21,12 +24,25 @@ public class CardView : MonoBehaviour
 
     public void Setup(Card card)
     {
+        SetSelected(false);
         Card = card;
         title.text = card.Title;
         description.text = card.Description;
         energy.text = card.Energy.ToString();
         imageSR.sprite = card.Image;
     }
+
+    private void SetSelected(bool selected)
+    {
+        isSelected = selected;
+    }
+
+    public void OnClick() // UI Button 
+    {
+        SetSelected(!isSelected);
+        OnSelected?.Invoke(isSelected);
+    }
+
 
     void OnMouseEnter()
     {

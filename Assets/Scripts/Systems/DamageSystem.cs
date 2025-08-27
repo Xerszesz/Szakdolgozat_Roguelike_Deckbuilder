@@ -6,8 +6,6 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] private GameObject enemyDamagedVFX;
     [SerializeField] private GameObject heroDamagedVFX;
 
-    [SerializeField] private GameObject gameOverUI;
-
     private void OnEnable()
     {
         ActionSystem.AttachPerformer<DealDamageGameAction>(DealDamagePerformer);
@@ -44,13 +42,15 @@ public class DamageSystem : MonoBehaviour
                 }
                 else if (target is HeroView heroView)
                 {
+                    //Hero dies
                     KillHeroGameAction killHeroGA = new(heroView);
                     ActionSystem.Instance.AddReaction(killHeroGA);
 
                     //Game Over Scene, Hero lost all health
-                    gameOverUI.SetActive(true);
+                    LoseGameAction loseGA = new LoseGameAction();
+                    ActionSystem.Instance.AddReaction(loseGA);
 
-                    
+                    Time.timeScale = 0f;
                 }
             }
         }
