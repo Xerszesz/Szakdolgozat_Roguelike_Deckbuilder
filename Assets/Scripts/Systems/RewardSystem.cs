@@ -16,11 +16,9 @@ public class RewardSystem : MonoBehaviour
         if (heroData == null || cardData == null)
             return;
 
-        if (!heroData.StarterDeck.Contains(cardData))
-            heroData.StarterDeck.Add(cardData);
+        heroData.StarterDeck.Add(cardData);
     }
 
-    
     public void GenerateRewardCardsUI()
     {
         var selected = new List<CardData>();
@@ -35,10 +33,13 @@ public class RewardSystem : MonoBehaviour
 
         foreach (var cardData in selected)
         {
+            
             CardViewUI cardViewUI = CardViewUICreator.Instance.CreateCardViewUI(Vector3.zero, Quaternion.identity);
 
+           
             cardViewUI.Setup(cardData, this, heroData, rewardSelectionUI);
 
+            
             Button button = cardViewUI.GetComponentInChildren<Button>();
             if (button != null)
             {

@@ -17,12 +17,6 @@ public class RestartRunButton : MonoBehaviour
         PerkSystem.Instance.Reset();
         ActionSystem.Instance.Reset();
 
-        Destroy(CardSystem.Instance.gameObject);
-        Destroy(EnemySystem.Instance.gameObject);
-        Destroy(PerkSystem.Instance.gameObject);
-        Destroy(ActionSystem.Instance.gameObject);
-        
-
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("CombatScene");
     }
 }
