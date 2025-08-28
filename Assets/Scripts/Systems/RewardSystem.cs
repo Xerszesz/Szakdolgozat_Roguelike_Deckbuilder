@@ -1,27 +1,28 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RewardSystem : MonoBehaviour
 {
     //Ebbe a listába csak reward kártyák valók, az alapok nem
     [SerializeField] private List<CardData> allRewardCards;
 
-    [SerializeField] private RewardSelectionUI RewardSelectionUI;
+    [SerializeField] private RewardSelectionUI rewardSelectionUI;
+    [SerializeField] private HeroData heroData;
 
 
-    public void AddOneRandomRewardToDeck(HeroData heroData)
+    public void AddSpecificRewardToDeck(HeroData heroData, CardData cardData)
     {
-        if (allRewardCards == null || allRewardCards.Count == 0 || heroData == null)
+        if (heroData == null || cardData == null)
             return;
 
-        var randomCard = allRewardCards[Random.Range(0, allRewardCards.Count)];
-        if (!heroData.StarterDeck.Contains(randomCard))
-            heroData.StarterDeck.Add(randomCard);
+        if (!heroData.StarterDeck.Contains(cardData))
+            heroData.StarterDeck.Add(cardData);
     }
 
+    
     public void GenerateRewardCardsUI()
     {
-        // 1. Véletlenszerûen kiválaszt 3 egyedi kártyát
         var selected = new List<CardData>();
         while (selected.Count < 3)
         {
@@ -30,17 +31,22 @@ public class RewardSystem : MonoBehaviour
                 selected.Add(randomCard);
         }
 
-        RewardSelectionUI.ClearSlots();
+        rewardSelectionUI.ClearSlots();
 
-        // 2. CardViewUI példányok létrehozása a CardViewUICreatorral
-        var cardViews = new List<CardViewUI>();
         foreach (var cardData in selected)
         {
-            Card card = new Card(cardData);
-            CardViewUI cardViewUI = CardViewUICreator.Instance.CreateCardViewUI(card, Vector3.zero, Quaternion.identity);
-            RewardSelectionUI.AddCardView(cardViewUI);
-        }
+            CardViewUI cardViewUI = CardViewUICreator.Instance.CreateCardViewUI(Vector3.zero, Quaternion.identity);
 
-        
+            cardViewUI.Setup(cardData, this, heroData, rewardSelectionUI);
+
+            Button button = cardViewUI.GetComponentInChildren<Button>();
+            if (button != null)
+            {
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(cardViewUI.OnAddToDeckButtonClicked);
+            }
+
+            rewardSelectionUI.AddCardView(cardViewUI);
+        }
     }
 }

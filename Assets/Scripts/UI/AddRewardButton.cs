@@ -4,13 +4,19 @@ public class AddRewardButton : MonoBehaviour
 {
     [SerializeField] private RewardSystem rewardSystem;
     [SerializeField] private HeroData heroData;
+    [SerializeField] private GameObject RewardSelectionUI;
 
-    [SerializeField] private GameObject CardSelectionCanvas;
+    [SerializeField] private CardData cardData;
 
     public void OnClick()
     {
-        rewardSystem.AddOneRandomRewardToDeck(heroData);
+        rewardSystem.AddSpecificRewardToDeck(heroData, cardData);
         //Hide the reward UI
-        CardSelectionCanvas.SetActive(false);
+        RewardSelectionUI.SetActive(false);
+    }
+
+    public void SetCardData(CardData data)
+    {
+        cardData = data;
     }
 }

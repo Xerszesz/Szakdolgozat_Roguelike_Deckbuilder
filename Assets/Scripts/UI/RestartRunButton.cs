@@ -18,7 +18,6 @@ public class RestartRunButton : MonoBehaviour
         ActionSystem.Instance.Reset();
 
         Destroy(CardSystem.Instance.gameObject);
-        Destroy(HeroSystem.Instance.gameObject);
         Destroy(EnemySystem.Instance.gameObject);
         Destroy(PerkSystem.Instance.gameObject);
         Destroy(ActionSystem.Instance.gameObject);
