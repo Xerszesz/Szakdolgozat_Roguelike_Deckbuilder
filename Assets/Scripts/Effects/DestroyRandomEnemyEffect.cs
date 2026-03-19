@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class DestroyRandomEnemyEffect : Effect
 {
     public override GameAction GetGameAction(List<CombatantView> targets, CombatantView caster)

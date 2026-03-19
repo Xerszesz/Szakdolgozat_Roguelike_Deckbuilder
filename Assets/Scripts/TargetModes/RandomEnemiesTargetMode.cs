@@ -1,11 +1,13 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class RandomEnemiesTargetMode : TargetMode
 {
     public override List<CombatantView> GetTargets()
     {
-        CombatantView target = EnemySystem.Instance.Enemies[Random.Range(0, EnemySystem.Instance.Enemies.Count)];
+        CombatantView target = EnemySystem.Instance.Enemies[UnityEngine.Random.Range(0, EnemySystem.Instance.Enemies.Count)];
         return new() { target };
     }
 }

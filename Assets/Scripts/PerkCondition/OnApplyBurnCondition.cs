@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class OnApplyBurnCondition : PerkCondition
 {
     public override bool SubConditionIsMet(GameAction gameAction)

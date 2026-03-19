@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class OnEnemyTurnCondition : PerkCondition
 {
     public override bool SubConditionIsMet(GameAction gameAction)
